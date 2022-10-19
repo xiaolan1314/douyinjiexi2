@@ -18,6 +18,7 @@ using Windows.UI.Notifications;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation.Collections;
 using System.IO;
+using System.Reflection.Emit;
 
 namespace douyinjiexi
 {
@@ -34,6 +35,7 @@ namespace douyinjiexi
         public static string xinxi ;
         public static string jiexiUrl;
         public static string IDS;
+        public static string img;
 
         public Form1()
         {
@@ -46,9 +48,13 @@ namespace douyinjiexi
             if (check == 1)    
             {
                 geshihua();
-            }
+            
             xinxi = "解析完成！";
             提示信息();
+            改变大小();
+                pictureBox1.ImageLocation = img;
+                //pictureBox2.ImageLocation = img;
+            }
         }
         private void 解析()
         {
@@ -76,15 +82,25 @@ namespace douyinjiexi
             IDS = zhengze2.ToString();
             //根据API提供请求到服务器上
             string fanhuiapi1 = HttpWebRequest_Get1("https://www.iesdouyin.com/web/api/v2/aweme/iteminfo/?item_ids=" + IDS);
+            
             //json取出对应地址
             JObject jo = JObject.Parse(fanhuiapi1);
             string video = jo["item_list"][0]["video"]["play_addr"]["url_list"][0].ToString();
             //文件名
             desc = jo["item_list"][0]["desc"].ToString();
             desc_mp4 = desc + ".mp4";
-            //音乐
-            music= jo["item_list"][0]["music"]["play_url"]["uri"].ToString();
+            //音乐 (已弃用)
+            //music= jo["item_list"][0]["music"]["play_url"]["uri"].ToString();
             //视频
+            img= jo["item_list"][0]["video"]["origin_cover"]["url_list"][0].ToString();
+
+            //Image A = Image.FromStream(WebRequest.Create("https://img1.baidu.com/it/u=3009731526,373851691&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500").GetResponse().GetResponseStream());
+
+            //string B = Fanhuiurl(img);
+
+            //pictureBox2.ImageLocation = B;
+            //pictureBox2.Image = B;
+            //
             video = video.Replace("playwm", "play");
             video = video.Replace("720p", "4K");
             video_down = Fanhuiurl2(video);
@@ -93,7 +109,7 @@ namespace douyinjiexi
         private void geshihua()
         {
             this.textBox_shuchu_desc.Text = desc;
-            this.textBox_shuchu_music.Text = music;
+            this.textBox_shuchu_fengmian.Text = music;
             this.textBox_shuchu_video.Text = video_down;
             this.button_start.Text = "解析完成！";
             this.button_down_IDM.Enabled=true;
@@ -120,6 +136,9 @@ namespace douyinjiexi
         private void Form1_Load(object sender, EventArgs e)
         {
             label_ver.Text = GetEdition().ToString();
+            //button_update.Location = new System.Drawing.Point(631, 692);
+            //Form1.Size = new System.Drawing.Size(300, 300);
+            //Size = new System.Drawing.Size(300, 300);
         }
         public static Version GetEdition()
         {
@@ -470,6 +489,16 @@ namespace douyinjiexi
         private void button1_Click_3(object sender, EventArgs e)
         {
 
+        }
+        public void 改变大小()
+        {
+            pictureBox1.Location = new System.Drawing.Point(87, 370);
+            WMP_player.Location=new System.Drawing.Point(281, 370);
+            button_update.Location = new System.Drawing.Point(621, 696);
+            label9.Location = new System.Drawing.Point(722, 702);
+            label_ver.Location = new System.Drawing.Point(791, 702);
+            //Form1.Size = new System.Drawing.Size(300, 300);
+            Size = new System.Drawing.Size(864, 766);
         }
         public void player()
         {

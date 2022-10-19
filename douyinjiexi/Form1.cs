@@ -456,6 +456,25 @@ namespace douyinjiexi
         {
             粘贴到剪切板(desc);
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_playmusic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+
+        }
+        public void player()
+        {
+
+        }
     }
 
 }

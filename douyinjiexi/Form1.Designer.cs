@@ -56,10 +56,14 @@
             this.button_update = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.copy_to_jtb = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button_playmusic = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.WMP_player = new AxWMPLib.AxWindowsMediaPlayer();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WMP_player)).BeginInit();
             this.SuspendLayout();
             // 
             // button_start
@@ -272,7 +276,7 @@
             // 
             this.label_ver.AutoSize = true;
             this.label_ver.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_ver.Location = new System.Drawing.Point(793, 548);
+            this.label_ver.Location = new System.Drawing.Point(801, 751);
             this.label_ver.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_ver.Name = "label_ver";
             this.label_ver.Size = new System.Drawing.Size(0, 19);
@@ -283,7 +287,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(724, 548);
+            this.label9.Location = new System.Drawing.Point(732, 751);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(61, 19);
@@ -306,7 +310,7 @@
             // button_update
             // 
             this.button_update.Font = new System.Drawing.Font("微软雅黑", 9.75F);
-            this.button_update.Location = new System.Drawing.Point(623, 542);
+            this.button_update.Location = new System.Drawing.Point(631, 745);
             this.button_update.Name = "button_update";
             this.button_update.Size = new System.Drawing.Size(69, 30);
             this.button_update.TabIndex = 18;
@@ -337,15 +341,16 @@
             this.copy_to_jtb.UseVisualStyleBackColor = true;
             this.copy_to_jtb.Click += new System.EventHandler(this.button1_Click_2);
             // 
-            // button2
+            // button_playmusic
             // 
-            this.button2.Font = new System.Drawing.Font("微软雅黑", 9.75F);
-            this.button2.Location = new System.Drawing.Point(695, 147);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 28);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "播放音乐";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button_playmusic.Font = new System.Drawing.Font("微软雅黑", 9.75F);
+            this.button_playmusic.Location = new System.Drawing.Point(695, 154);
+            this.button_playmusic.Name = "button_playmusic";
+            this.button_playmusic.Size = new System.Drawing.Size(64, 28);
+            this.button_playmusic.TabIndex = 21;
+            this.button_playmusic.Text = "播放";
+            this.button_playmusic.UseVisualStyleBackColor = true;
+            this.button_playmusic.Click += new System.EventHandler(this.button_playmusic_Click);
             // 
             // button3
             // 
@@ -368,14 +373,45 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.解析后使用IDM下载ToolStripMenuItem_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 9.75F);
+            this.button1.Location = new System.Drawing.Point(765, 155);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(62, 26);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "停止";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_3);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 652);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(864, 22);
+            this.statusStrip1.TabIndex = 26;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // WMP_player
+            // 
+            this.WMP_player.Enabled = true;
+            this.WMP_player.Location = new System.Drawing.Point(86, 360);
+            this.WMP_player.Name = "WMP_player";
+            this.WMP_player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WMP_player.OcxState")));
+            this.WMP_player.Size = new System.Drawing.Size(605, 330);
+            this.WMP_player.TabIndex = 27;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 586);
+            this.ClientSize = new System.Drawing.Size(864, 674);
+            this.Controls.Add(this.WMP_player);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button_playmusic);
             this.Controls.Add(this.copy_to_jtb);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button_update);
@@ -403,6 +439,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.WMP_player)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -436,9 +473,12 @@
         private System.Windows.Forms.Button button_update;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button copy_to_jtb;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button_playmusic;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private AxWMPLib.AxWindowsMediaPlayer WMP_player;
     }
 }
 

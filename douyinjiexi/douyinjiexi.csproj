@@ -32,11 +32,11 @@
     <ProductName>抖音无水印解析工具</ProductName>
     <PublisherName>小懒</PublisherName>
     <SuiteName>抖音无水印解析工具</SuiteName>
-    <MinimumRequiredVersion>1.0.2.1</MinimumRequiredVersion>
+    <MinimumRequiredVersion>1.0.3.1</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>www.xiaolanhhy.com</WebPage>
-    <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>1.0.2.%2a</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>

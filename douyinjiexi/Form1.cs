@@ -18,6 +18,7 @@ using Windows.UI.Notifications;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation.Collections;
 using System.IO;
+using System.Reflection.Emit;
 
 namespace douyinjiexi
 {
@@ -25,7 +26,7 @@ namespace douyinjiexi
     {
         public static string Url;
         public static string desc ;
-        public static string music ;
+        //public static string music ;
         public static string video_down ;
         public static string desc_mp4;
         public static string copy_info;
@@ -34,6 +35,8 @@ namespace douyinjiexi
         public static string xinxi ;
         public static string jiexiUrl;
         public static string IDS;
+        public static string img;
+        public static string img_webp;
 
         public Form1()
         {
@@ -46,9 +49,18 @@ namespace douyinjiexi
             if (check == 1)    
             {
                 geshihua();
-            }
+            
             xinxi = "解析完成！";
             提示信息();
+            改变大小();
+                pictureBox1.ImageLocation = img;
+                
+                //pictureBox2.ImageLocation = img;
+            }
+            else
+            {
+                MessageBox.Show("解析失败");
+            }
         }
         private void 解析()
         {
@@ -76,15 +88,18 @@ namespace douyinjiexi
             IDS = zhengze2.ToString();
             //根据API提供请求到服务器上
             string fanhuiapi1 = HttpWebRequest_Get1("https://www.iesdouyin.com/web/api/v2/aweme/iteminfo/?item_ids=" + IDS);
+            
             //json取出对应地址
             JObject jo = JObject.Parse(fanhuiapi1);
             string video = jo["item_list"][0]["video"]["play_addr"]["url_list"][0].ToString();
-            //文件名
+            //视频文件名
             desc = jo["item_list"][0]["desc"].ToString();
             desc_mp4 = desc + ".mp4";
-            //音乐
-            music= jo["item_list"][0]["music"]["play_url"]["uri"].ToString();
+            //音乐 (已弃用)
+            //music= jo["item_list"][0]["music"]["play_url"]["uri"].ToString();
             //视频
+            img= jo["item_list"][0]["video"]["origin_cover"]["url_list"][0].ToString();
+            img_webp = desc + ".webp";
             video = video.Replace("playwm", "play");
             video = video.Replace("720p", "4K");
             video_down = Fanhuiurl2(video);
@@ -93,7 +108,7 @@ namespace douyinjiexi
         private void geshihua()
         {
             this.textBox_shuchu_desc.Text = desc;
-            this.textBox_shuchu_music.Text = music;
+            this.textBox_shuchu_fengmian.Text = img;
             this.textBox_shuchu_video.Text = video_down;
             this.button_start.Text = "解析完成！";
             this.button_down_IDM.Enabled=true;
@@ -120,6 +135,10 @@ namespace douyinjiexi
         private void Form1_Load(object sender, EventArgs e)
         {
             label_ver.Text = GetEdition().ToString();
+            //WMP_player.Ctlcontrols.stop();
+            //button_update.Location = new System.Drawing.Point(631, 692);
+            //Form1.Size = new System.Drawing.Size(300, 300);
+            //Size = new System.Drawing.Size(300, 300);
         }
         public static Version GetEdition()
         {
@@ -161,6 +180,7 @@ namespace douyinjiexi
         
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            WMP_player.Ctlcontrols.stop();
             try
             {
                 e.Cancel = true;
@@ -471,9 +491,39 @@ namespace douyinjiexi
         {
 
         }
+        public void 改变大小()
+        {
+            pictureBox1.Location = new System.Drawing.Point(87, 350);
+            WMP_player.Location=new System.Drawing.Point(281, 350);
+            button_update.Location = new System.Drawing.Point(621, 690);
+            label9.Location = new System.Drawing.Point(722, 696);
+            label_ver.Location = new System.Drawing.Point(791, 696);
+            //Form1.Size = new System.Drawing.Size(300, 300);
+            Size = new System.Drawing.Size(864, 766);
+        }
         public void player()
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            WMP_player.URL = video_down;
+        }
+
+        private void button1_Click_4(object sender, EventArgs e)
+        {
+            IDMdown(img,img_webp);
+        }
+
+        private void button_fengmianurl_Click(object sender, EventArgs e)
+        {
+            if (check == 1)
+            {
+                粘贴到剪切板(img);
+                xinxi = "被复制到剪切板!";
+                提示信息();
+            }
         }
     }
 

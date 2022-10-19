@@ -33,7 +33,7 @@
             this.button_start = new System.Windows.Forms.Button();
             this.textBox_shuchu_video = new System.Windows.Forms.TextBox();
             this.textBox_shuru1 = new System.Windows.Forms.TextBox();
-            this.textBox_shuchu_music = new System.Windows.Forms.TextBox();
+            this.textBox_shuchu_fengmian = new System.Windows.Forms.TextBox();
             this.textBox_shuchu_desc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,23 +56,26 @@
             this.button_update = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.copy_to_jtb = new System.Windows.Forms.Button();
-            this.button_playmusic = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.WMP_player = new AxWMPLib.AxWindowsMediaPlayer();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button_fengmianurl = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WMP_player)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button_start
             // 
             this.button_start.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_start.Location = new System.Drawing.Point(695, 15);
+            this.button_start.Location = new System.Drawing.Point(697, 15);
             this.button_start.Margin = new System.Windows.Forms.Padding(2);
             this.button_start.Name = "button_start";
-            this.button_start.Size = new System.Drawing.Size(144, 41);
+            this.button_start.Size = new System.Drawing.Size(142, 41);
             this.button_start.TabIndex = 0;
             this.button_start.Text = "开始解析";
             this.button_start.UseVisualStyleBackColor = true;
@@ -81,7 +84,7 @@
             // textBox_shuchu_video
             // 
             this.textBox_shuchu_video.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox_shuchu_video.Location = new System.Drawing.Point(87, 214);
+            this.textBox_shuchu_video.Location = new System.Drawing.Point(87, 194);
             this.textBox_shuchu_video.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_shuchu_video.Multiline = true;
             this.textBox_shuchu_video.Name = "textBox_shuchu_video";
@@ -100,16 +103,16 @@
             this.textBox_shuru1.TabIndex = 2;
             this.textBox_shuru1.Leave += new System.EventHandler(this.textBox_shuru1_Leave);
             // 
-            // textBox_shuchu_music
+            // textBox_shuchu_fengmian
             // 
-            this.textBox_shuchu_music.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox_shuchu_music.Location = new System.Drawing.Point(86, 149);
-            this.textBox_shuchu_music.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox_shuchu_music.Multiline = true;
-            this.textBox_shuchu_music.Name = "textBox_shuchu_music";
-            this.textBox_shuchu_music.Size = new System.Drawing.Size(604, 61);
-            this.textBox_shuchu_music.TabIndex = 3;
-            this.textBox_shuchu_music.TextChanged += new System.EventHandler(this.textBox_shuchu_music_TextChanged);
+            this.textBox_shuchu_fengmian.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox_shuchu_fengmian.Location = new System.Drawing.Point(86, 149);
+            this.textBox_shuchu_fengmian.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_shuchu_fengmian.Multiline = true;
+            this.textBox_shuchu_fengmian.Name = "textBox_shuchu_fengmian";
+            this.textBox_shuchu_fengmian.Size = new System.Drawing.Size(604, 41);
+            this.textBox_shuchu_fengmian.TabIndex = 3;
+            this.textBox_shuchu_fengmian.TextChanged += new System.EventHandler(this.textBox_shuchu_music_TextChanged);
             // 
             // textBox_shuchu_desc
             // 
@@ -149,19 +152,19 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(7, 154);
+            this.label3.Location = new System.Drawing.Point(10, 159);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 21);
             this.label3.TabIndex = 7;
-            this.label3.Text = "音乐URL:";
+            this.label3.Text = "封面URL:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(7, 271);
+            this.label4.Location = new System.Drawing.Point(7, 251);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 21);
@@ -185,10 +188,10 @@
             // 
             this.button_down_IDM.Enabled = false;
             this.button_down_IDM.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_down_IDM.Location = new System.Drawing.Point(695, 288);
+            this.button_down_IDM.Location = new System.Drawing.Point(697, 295);
             this.button_down_IDM.Margin = new System.Windows.Forms.Padding(2);
             this.button_down_IDM.Name = "button_down_IDM";
-            this.button_down_IDM.Size = new System.Drawing.Size(144, 30);
+            this.button_down_IDM.Size = new System.Drawing.Size(142, 40);
             this.button_down_IDM.TabIndex = 12;
             this.button_down_IDM.Text = "IDM下载";
             this.button_down_IDM.UseVisualStyleBackColor = true;
@@ -198,10 +201,10 @@
             // 
             this.button_down_Thunder.Enabled = false;
             this.button_down_Thunder.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_down_Thunder.Location = new System.Drawing.Point(695, 251);
+            this.button_down_Thunder.Location = new System.Drawing.Point(697, 245);
             this.button_down_Thunder.Margin = new System.Windows.Forms.Padding(2);
             this.button_down_Thunder.Name = "button_down_Thunder";
-            this.button_down_Thunder.Size = new System.Drawing.Size(144, 30);
+            this.button_down_Thunder.Size = new System.Drawing.Size(142, 42);
             this.button_down_Thunder.TabIndex = 13;
             this.button_down_Thunder.Text = "下载到桌面";
             this.button_down_Thunder.UseVisualStyleBackColor = true;
@@ -276,7 +279,7 @@
             // 
             this.label_ver.AutoSize = true;
             this.label_ver.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_ver.Location = new System.Drawing.Point(801, 751);
+            this.label_ver.Location = new System.Drawing.Point(781, 345);
             this.label_ver.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_ver.Name = "label_ver";
             this.label_ver.Size = new System.Drawing.Size(0, 19);
@@ -287,7 +290,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(732, 751);
+            this.label9.Location = new System.Drawing.Point(712, 345);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(61, 19);
@@ -299,9 +302,9 @@
             // 
             this.button_copy.Enabled = false;
             this.button_copy.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_copy.Location = new System.Drawing.Point(695, 214);
+            this.button_copy.Location = new System.Drawing.Point(697, 198);
             this.button_copy.Name = "button_copy";
-            this.button_copy.Size = new System.Drawing.Size(144, 30);
+            this.button_copy.Size = new System.Drawing.Size(142, 42);
             this.button_copy.TabIndex = 17;
             this.button_copy.Text = "复制下载链接";
             this.button_copy.UseVisualStyleBackColor = true;
@@ -310,7 +313,7 @@
             // button_update
             // 
             this.button_update.Font = new System.Drawing.Font("微软雅黑", 9.75F);
-            this.button_update.Location = new System.Drawing.Point(631, 745);
+            this.button_update.Location = new System.Drawing.Point(611, 339);
             this.button_update.Name = "button_update";
             this.button_update.Size = new System.Drawing.Size(69, 30);
             this.button_update.TabIndex = 18;
@@ -332,35 +335,26 @@
             // 
             // copy_to_jtb
             // 
+            this.copy_to_jtb.Enabled = false;
             this.copy_to_jtb.Font = new System.Drawing.Font("微软雅黑", 9.75F);
-            this.copy_to_jtb.Location = new System.Drawing.Point(695, 115);
+            this.copy_to_jtb.Location = new System.Drawing.Point(697, 115);
             this.copy_to_jtb.Name = "copy_to_jtb";
-            this.copy_to_jtb.Size = new System.Drawing.Size(144, 28);
+            this.copy_to_jtb.Size = new System.Drawing.Size(142, 28);
             this.copy_to_jtb.TabIndex = 20;
             this.copy_to_jtb.Text = "复制标题";
             this.copy_to_jtb.UseVisualStyleBackColor = true;
             this.copy_to_jtb.Click += new System.EventHandler(this.button1_Click_2);
             // 
-            // button_playmusic
-            // 
-            this.button_playmusic.Font = new System.Drawing.Font("微软雅黑", 9.75F);
-            this.button_playmusic.Location = new System.Drawing.Point(695, 154);
-            this.button_playmusic.Name = "button_playmusic";
-            this.button_playmusic.Size = new System.Drawing.Size(64, 28);
-            this.button_playmusic.TabIndex = 21;
-            this.button_playmusic.Text = "播放";
-            this.button_playmusic.UseVisualStyleBackColor = true;
-            this.button_playmusic.Click += new System.EventHandler(this.button_playmusic_Click);
-            // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("微软雅黑", 9.75F);
-            this.button3.Location = new System.Drawing.Point(695, 326);
+            this.button3.Location = new System.Drawing.Point(281, 690);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(142, 29);
+            this.button3.Size = new System.Drawing.Size(160, 29);
             this.button3.TabIndex = 22;
             this.button3.Text = "播放视频";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -373,45 +367,78 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.解析后使用IDM下载ToolStripMenuItem_Click);
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 9.75F);
-            this.button1.Location = new System.Drawing.Point(765, 155);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(62, 26);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "停止";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_3);
-            // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 652);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 691);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(864, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(861, 22);
             this.statusStrip1.TabIndex = 26;
             this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.Visible = false;
             // 
             // WMP_player
             // 
             this.WMP_player.Enabled = true;
-            this.WMP_player.Location = new System.Drawing.Point(86, 360);
+            this.WMP_player.Location = new System.Drawing.Point(267, 404);
             this.WMP_player.Name = "WMP_player";
             this.WMP_player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WMP_player.OcxState")));
-            this.WMP_player.Size = new System.Drawing.Size(605, 330);
+            this.WMP_player.Size = new System.Drawing.Size(558, 325);
             this.WMP_player.TabIndex = 27;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(86, 404);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(174, 325);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 28;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label6.Location = new System.Drawing.Point(7, 529);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 21);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "预览图：";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 9.75F);
+            this.button1.Location = new System.Drawing.Point(86, 690);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(175, 29);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "下载封面";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_4);
+            // 
+            // button_fengmianurl
+            // 
+            this.button_fengmianurl.Enabled = false;
+            this.button_fengmianurl.Font = new System.Drawing.Font("微软雅黑", 9.75F);
+            this.button_fengmianurl.Location = new System.Drawing.Point(697, 149);
+            this.button_fengmianurl.Name = "button_fengmianurl";
+            this.button_fengmianurl.Size = new System.Drawing.Size(142, 43);
+            this.button_fengmianurl.TabIndex = 31;
+            this.button_fengmianurl.Text = "复制链接";
+            this.button_fengmianurl.UseVisualStyleBackColor = true;
+            this.button_fengmianurl.Click += new System.EventHandler(this.button_fengmianurl_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 674);
-            this.Controls.Add(this.WMP_player);
-            this.Controls.Add(this.statusStrip1);
+            this.ClientSize = new System.Drawing.Size(848, 374);
+            this.Controls.Add(this.button_fengmianurl);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.WMP_player);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button_playmusic);
             this.Controls.Add(this.copy_to_jtb);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button_update);
@@ -427,9 +454,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox_shuchu_desc);
-            this.Controls.Add(this.textBox_shuchu_music);
+            this.Controls.Add(this.textBox_shuchu_fengmian);
             this.Controls.Add(this.textBox_shuchu_video);
             this.Controls.Add(this.button_start);
+            this.Controls.Add(this.statusStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -440,6 +468,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.WMP_player)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -450,7 +479,7 @@
         private System.Windows.Forms.Button button_start;
         private System.Windows.Forms.TextBox textBox_shuchu_video;
         private System.Windows.Forms.TextBox textBox_shuru1;
-        private System.Windows.Forms.TextBox textBox_shuchu_music;
+        private System.Windows.Forms.TextBox textBox_shuchu_fengmian;
         private System.Windows.Forms.TextBox textBox_shuchu_desc;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -473,12 +502,14 @@
         private System.Windows.Forms.Button button_update;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button copy_to_jtb;
-        private System.Windows.Forms.Button button_playmusic;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private AxWMPLib.AxWindowsMediaPlayer WMP_player;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_fengmianurl;
     }
 }
 
